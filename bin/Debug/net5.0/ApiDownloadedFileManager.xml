@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiDownloadedFileManager</name>
+    </assembly>
+    <members>
+        <member name="M:ApiDownloadedFileManager.Controllers.V1.FilesController.GetFile(System.Int32,System.Int32)">
+            <summary>
+            Buscar todos os arquivos de forma paginada
+            </summary>
+            <remarks>
+            Não é possível retornar os arquivos sem paginação
+            </remarks>
+            <param name="page">Indica qual página está sendo consultada. Mínimo 1</param>
+            <param name="qty">Indica a quantidade de registros por página. Mínimo 1 e máximo 50</param>
+            <response code="200">Retorna a lista de arquivos</response>
+            <response code="204">Caso não haja arquivos</response>   
+        </member>
+        <member name="M:ApiDownloadedFileManager.Controllers.V1.FilesController.GetFile(System.Guid)">
+            <summary>
+            Buscar um arquivo pelo seu Id
+            </summary>
+            <param name="idFile">Id do arquivo buscado</param>
+            <response code="200">Retorna o arquivo filtrado</response>
+            <response code="204">Caso não haja arquivo com este id</response>   
+        </member>
+        <member name="M:ApiDownloadedFileManager.Controllers.V1.FilesController.InsertFile(ApiDownloadedFileManager.InputModel.FileInputModel)">
+            <summary>
+            Inserir um arquivo no catálogo
+            </summary>
+            <param name="fileInputModel">Dados do Arquivo a ser inserido</param>
+            <response code="200">Caso o Arquivo seja inserido com sucesso</response>
+            <response code="422">Caso já exista um arquivo com mesmo nome para a mesma produtora</response> 
+        </member>
+        <member name="M:ApiDownloadedFileManager.Controllers.V1.FilesController.UpdateFile(System.Guid,ApiDownloadedFileManager.InputModel.FileInputModel)">
+            <summary>
+            Atualizar um arquivo no catálogo
+            </summary>
+            /// <param name="idFile">Id do arquivo a ser atualizado</param>
+            <param name="fileInputModel">Novos dados para atualizar o arquivo indicado</param>
+            <response code="200">Caso o arquivo seja atualizado com sucesso</response>
+            <response code="404">Caso não exista um arquivo com este Id</response> 
+        </member>
+        <member name="M:ApiDownloadedFileManager.Controllers.V1.FilesController.RefreshFile(System.Guid,ApiDownloadedFileManager.ViewModel.Enum.FileType)">
+            <summary>
+            Atualizar o tipo de um arquivo
+            </summary>
+            /// <param name="idFile">Id do arquivo a ser atualizado</param>
+            <param name="fileType">Novo tipo de arquivo do arquivo</param>
+            <response code="200">Caso o tipo seja atualizado com sucesso</response>
+            <response code="404">Caso não exista um arquivo com este Id</response> 
+        </member>
+        <member name="M:ApiDownloadedFileManager.Controllers.V1.FilesController.DeleteFile(System.Guid)">
+            <summary>
+            Excluir um arquivo
+            </summary>
+            /// <param name="idFile">Id do arquivo a ser excluído</param>
+            <response code="200">Caso o tipo seja atualizado com sucesso</response>
+            <response code="404">Caso não exista um arquivo com este Id</response>   
+        </member>
+    </members>
+</doc>
