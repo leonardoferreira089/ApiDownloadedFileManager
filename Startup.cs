@@ -37,9 +37,6 @@ namespace ApiDownloadedFileManager
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiDownloadedFileManager", Version = "v1" });
-                var basePath = AppDomain.CurrentDomain.BaseDirectory;
-                var fileName = typeof(Startup).GetTypeInfo().Assembly.GetName().Name + ".xml";
-                c.IncludeXmlComments(Path.Combine(basePath, fileName));
             });
         }
 

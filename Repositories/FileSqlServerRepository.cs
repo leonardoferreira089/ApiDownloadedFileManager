@@ -100,7 +100,7 @@ namespace ApiDownloadedFileManager.Repositories
 
         public async Task Insert(File file)
         {
-            var comando = $"insert Files (Id, FileName, FileType, GenreType, Purchased) values ('{file.Id}', '{file.FileName}', '{file.FileType}', '{file.GenreType}', '{file.Purchased}')";
+            var comando = $"insert Files (Id, FileName, FileType, GenreType, Purchased) values ('{file.Id}', '{file.FileName}', '{file.FileType.ToString()}', '{file.GenreType}', '{file.Purchased}')";
 
             await sqlConnection.OpenAsync();
             SqlCommand sqlCommand = new SqlCommand(comando, sqlConnection);
@@ -110,7 +110,7 @@ namespace ApiDownloadedFileManager.Repositories
 
         public async Task Refresh(File file)
         {
-            var comando = $"update Files set FileName = '{file.FileName}', FileType = '{file.FileType}', GenreType = {file.GenreType}, Purchased = {file.Purchased} where Id = '{file.Id}'";
+            var comando = $"update Files set FileName = '{file.FileName}', FileType = '{file.FileType.ToString()}', GenreType = {file.GenreType}, Purchased = {file.Purchased} where Id = '{file.Id}'";
 
             await sqlConnection.OpenAsync();
             SqlCommand sqlCommand = new SqlCommand(comando, sqlConnection);
