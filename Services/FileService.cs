@@ -31,8 +31,7 @@ namespace ApiDownloadedFileManager.Services
                 FileType = (int)file.FileType,
                 GenreType = file.GenreType,
                 Purchased = file.Purchased
-            })
-                               .ToList();
+            }).ToList();
         }
 
         public async Task<FileViewModel> GetFile(Guid id)
